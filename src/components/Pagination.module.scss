@@ -1,0 +1,15 @@
+.pages {
+  padding: 10px;
+  margin: 5px;
+  display: flex;
+  &__page {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  &__page:hover {
+    background-color: green;
+    cursor: pointer;
+  }
+}

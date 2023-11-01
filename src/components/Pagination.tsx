@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTypesSelector } from '../hooks/useTypesSelector';
 import { useActions } from '../hooks/useActions';
+import styles from './Pagination.module.scss';
 
 type Props = {
   changePage?: number;
@@ -11,7 +12,7 @@ const Pagination: React.FC<Props> = ({ changePage, setChangePage }: Props) => {
   const pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <div>
-      <div style={{ display: 'flex', cursor: 'pointer' }}>
+      <div className={styles.pages}>
         {pages.map((p) => (
           <div
             onClick={() => {
@@ -19,10 +20,8 @@ const Pagination: React.FC<Props> = ({ changePage, setChangePage }: Props) => {
             }}
             style={{
               border: p === page ? '2px solid green' : '2px solid grey',
-              padding: 10,
-              margin: 5,
-              borderRadius: '5px',
             }}
+            className={styles.pages__page}
           >
             {p}
           </div>

@@ -5,10 +5,13 @@ import { fetchUsers } from '../store/action-creators/user';
 import { useActions } from '../hooks/useActions';
 import { fetchTodos } from '../store/action-creators/todo';
 
+import styles from './UserList.module.scss';
+
 type Props = {
   changePage?: number;
+  setChangePage?: (newPage: number) => void;
 };
-const UserList: React.FC<Props> = ({ changePage }: Props) => {
+const UserList: React.FC<Props> = ({ changePage, setChangePage }: Props) => {
   const { users, loading, error } = useTypesSelector((state) => state.user);
   const { fetchUsers } = useActions();
   useEffect(() => {
@@ -20,15 +23,15 @@ const UserList: React.FC<Props> = ({ changePage }: Props) => {
   if (error) {
     return <h1>{error}...</h1>;
   }
-  console.log(changePage, 'ccc');
   return (
     <div>
       {users.map((user) => (
         <div
+          className={styles.userlist}
           key={user.id}
+          onClick={() => setChangePage?.(user.id)}
           style={{
             border: changePage === user.id ? '2px solid green' : 'none',
-            padding: 10,
           }}
         >
           {user.id}-{user.name}

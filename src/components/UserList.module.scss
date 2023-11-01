@@ -1,0 +1,9 @@
+.userlist {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px;
+  &:hover {
+    cursor: pointer;
+    background-color: green;
+  }
+}

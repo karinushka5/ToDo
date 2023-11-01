@@ -10,7 +10,7 @@ const App: React.FC = () => {
   return (
     <div className={styles.page}>
       <div className={styles.page__container}>
-        <UserList changePage={changePage} />
+        <UserList changePage={changePage} setChangePage={setChangePage} />
         <TodoList changePage={changePage} />
       </div>
       <div className={styles.page__pages}>
